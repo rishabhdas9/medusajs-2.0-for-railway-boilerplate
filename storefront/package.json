@@ -8,7 +8,7 @@
     "medusa-storefront"
   ],
   "engines": {
-    "node": ">=20"
+    "node": "20.8.1"
   },
   "scripts": {
     "wait": "await-backend",
@@ -23,7 +23,7 @@
   },
   "resolutions": {
     "webpack": "^5",
-    "@types/react": "18.3.12"
+    "@types/react": "17.0.40"
   },
   "dependencies": {
     "@headlessui/react": "^1.6.1",
@@ -70,7 +70,6 @@
     "tailwindcss-animate": "^1.0.7",
     "tailwindcss-radix": "^2.8.0",
     "validator": "^13.12.0",
-    "webpack": "^5",
     "yup": "^1.4.0"
   },
   "devDependencies": {
@@ -81,7 +80,6 @@
     "@types/lodash": "^4.14.195",
     "@types/node": "17.0.21",
     "@types/pg": "^8.11.0",
-    "@types/react": "^18.2.42",
     "@types/react-dom": "^18.2.18",
     "@types/react-instantsearch-dom": "^6.12.3",
     "ansi-colors": "^4.1.3",
