@@ -30,7 +30,9 @@ const SearchBar = ({ defaultValue = "" }: { defaultValue?: string }) => {
       const query = createQueryString("q", term)
       const newQuery = new URLSearchParams(query)
       newQuery.delete("page") // Reset pagination
-      router.push(`${pathname}?${newQuery.toString()}`)
+      router.push(`${pathname}?${newQuery.toString()}`,{
+        scroll: false
+      })
     }, 500)
   }, [createQueryString, pathname, router])
 

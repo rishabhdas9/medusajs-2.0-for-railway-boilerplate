@@ -59,7 +59,7 @@ const NavbarSearch = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="w-full max-w-[300px] relative">
+    <form onSubmit={handleSubmit} className="w-full relative">
       <style jsx global>{`
         .typewriter-input::placeholder {
           opacity: 0.85; /* Darker text (was 0.7) */

@@ -13,7 +13,7 @@ export default async function Footer() {
     <footer className="border-t border-ui-border-base w-full">
       <div className="content-container flex flex-col w-full">
         <div className="flex flex-col gap-y-6 xsmall:flex-row items-start justify-between py-40">
-          <div>
+          <div className="">
             <LocalizedClientLink
               href="/"
               className="txt-compact-xlarge-plus text-ui-fg-subtle hover:text-ui-fg-base uppercase pb-4"
@@ -21,7 +21,7 @@ export default async function Footer() {
               Fifth Vital
             </LocalizedClientLink>
             
-            <div className="flex flex-col gap-y-1 pt-4">
+            <div className="flex flex-col gap-y-1 pt-4 gap-x-2">
               <p className="txt-medium txt-ui-fg-base text-gray-600">Arya Hub Mall, #8, Second floor</p>
               <p className="txt-medium txt-ui-fg-base text-gray-600">Whitefield Main Rd, Bengaluru</p>
               <p className="txt-medium txt-ui-fg-base text-gray-600">Karnataka - 560066</p>

@@ -32,7 +32,7 @@ export default function CategoryTemplate({
 
   return (
     <div
-      className="flex flex-col small:flex-row small:items-start py-6 content-container"
+      className="flex flex-col small:flex-row small:items-start px-3 py-6 content-container"
       data-testid="category-container"
     >
       <RefinementList sortBy={sort} data-testid="sort-by-container" />
@@ -80,7 +80,7 @@ export default function CategoryTemplate({
         )}
         {category.category_children && (
           <div className="mb-8">
-            <ul className="grid grid-cols-2 small:grid-cols-3 medium:grid-cols-4 gap-4">
+            <ul className="grid grid-cols-2 gap-y-2 small:grid-cols-3 medium:grid-cols-4 gap-x-2 gap-y-3 small:gap-x-6 flex-1">
               {category.category_children?.map((c) => (
                 <li key={c.id}>
                   <InteractiveLink 

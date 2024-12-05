@@ -35,7 +35,7 @@ const MostBookedCheckups = () => {
 
   return (
     <section className="py-16">
-      <div className="mx-auto max-w-[1440px] px-12">
+      <div className="mx-auto max-w-[1440px] px-3 lg:px-12">
         <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between lg:gap-12">
           <div className="lg:w-1/3">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Most Popular Tests and Checkups</h2>

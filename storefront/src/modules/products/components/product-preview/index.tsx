@@ -36,7 +36,7 @@ export default async function ProductPreview({
 
   return (
     <Box className="group flex flex-col">
-      <Box className="relative h-[280px] small:h-[260px] bg-indigo-600 p-6 text-white flex flex-col rounded-lg">
+      <Box className="relative h-[240px] small:h-[260px] bg-indigo-600 p-6 text-white flex flex-col rounded-lg">
         <Text
           title={product.title}
           size="large"

@@ -11,6 +11,7 @@ import {
 import Image from "next/image"
 import Link from "next/link"
 import categoryImages from "@lib/data/categoryimages" // Import the categoryImages
+import NavbarSearch from "@modules/layout/components/navbar-search"
 
 
 const Hero = () => {
@@ -88,22 +89,24 @@ const Hero = () => {
               </div> */}
               
               <div className="mx-auto mt-8 max-w-2xl">
-              
+              <div className="mb-4 small:hidden">
+                  <NavbarSearch />
+                </div>
                 <div className="flex justify-center gap-4">
                 <Link href="/in/categories/tests">
                   <Button 
-                    className="gap-2 bg-orange-500 hover:bg-orange-600 text-white px-6 py-4 text-lg"
+                    className="gap-2 border-2 border-orange-500 bg-orange-500 hover:bg-orange-600 text-white px-3 py-2 text-sm md:px-6 md:py-4 md:text-lg "
                   >
-                    <TestTubes className="h-6 w-6" />
+                    <TestTubes className="h-4 w-4 md:h-6 md:w-6" />
                     Lab Tests
                   </Button>
                 </Link>
                 <Link href="/in/categories/complete-health-checkups">
                   <Button
                     variant="secondary"
-                    className="gap-2 border-2 border-orange-500 text-orange-500 hover:bg-orange-50 px-6 py-4 text-lg"
+                    className="gap-2 border-2 border-orange-500 text-orange-500 hover:bg-orange-50 px-3 py-2 text-sm md:px-6 md:py-4 md:text-lg"
                   >
-                    <Package className="h-6 w-6" />
+                    <Package className="h-4 w-4 md:h-6 md:w-6" />
                     Checkups
                   </Button>
                 </Link>

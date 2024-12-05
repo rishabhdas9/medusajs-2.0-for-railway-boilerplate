@@ -31,7 +31,7 @@ const StoreTemplate = ({
         <div className="mb-8">
           <div className="flex flex-col gap-4 mb-4">
             <h1 className="text-2xl-semi" data-testid="store-page-title">
-              All products
+              All Tests and Checkups
             </h1>
             <SearchBar defaultValue={searchQuery} />
           </div>
