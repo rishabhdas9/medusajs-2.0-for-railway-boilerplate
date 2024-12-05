@@ -35,7 +35,12 @@ const OrderDetailsTemplate: React.FC<OrderDetailsTemplateProps> = ({
         data-testid="order-details-container"
       >
         <OrderDetails order={order} showStatus />
-        <Items items={order.items} />
+        <Items 
+          items={(order.items || []).map(item => ({
+            ...item,
+            title: item.variant?.product?.title || "Unknown Product"
+          }))} 
+        />
         <ShippingDetails order={order} />
         <OrderSummary order={order} />
         <Help />

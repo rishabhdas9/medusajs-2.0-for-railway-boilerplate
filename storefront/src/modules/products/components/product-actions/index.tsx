@@ -1,6 +1,6 @@
 "use client"
 
-import { Button } from "@medusajs/ui"
+import Button from "@modules/common/components/custom-button"
 import { isEqual } from "lodash"
 import { useParams } from "next/navigation"
 import { useEffect, useMemo, useRef, useState } from "react"
@@ -20,11 +20,9 @@ type ProductActionsProps = {
   disabled?: boolean
 }
 
-const optionsAsKeymap = (variantOptions: any) => {
-  return variantOptions?.reduce((acc: Record<string, string | undefined>, varopt: any) => {
-    if (varopt.option && varopt.value !== null && varopt.value !== undefined) {
-      acc[varopt.option.title] = varopt.value
-    }
+const optionsAsKeymap = (variantOptions: HttpTypes.StoreProductVariant["options"]) => {
+  return variantOptions?.reduce((acc: Record<string, string>, varopt: any) => {
+    acc[varopt.option_id] = varopt.value
     return acc
   }, {})
 }
@@ -58,10 +56,10 @@ export default function ProductActions({
   }, [product.variants, options])
 
   // update the options when a variant is selected
-  const setOptionValue = (title: string, value: string) => {
+  const setOptionValue = (optionId: string, value: string) => {
     setOptions((prev) => ({
       ...prev,
-      [title]: value,
+      [optionId]: value,
     }))
   }
 
@@ -119,7 +117,7 @@ export default function ProductActions({
                   <div key={option.id}>
                     <OptionSelect
                       option={option}
-                      current={options[option.title ?? ""]}
+                      current={options[option.id]}
                       updateOption={setOptionValue}
                       title={option.title ?? ""}
                       data-testid="product-options"
@@ -139,7 +137,7 @@ export default function ProductActions({
           onClick={handleAddToCart}
           disabled={!inStock || !selectedVariant || !!disabled || isAdding}
           variant="primary"
-          className="w-full h-10"
+          className="w-full h-10 bg-orange-500 hover:bg-orange-600"
           isLoading={isAdding}
           data-testid="add-product-button"
         >
@@ -151,7 +149,6 @@ export default function ProductActions({
         </Button>
         <MobileActions
           product={product}
-          variant={selectedVariant}
           options={options}
           updateOptions={setOptionValue}
           inStock={inStock}

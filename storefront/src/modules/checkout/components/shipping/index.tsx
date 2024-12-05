@@ -2,8 +2,8 @@
 
 import { RadioGroup } from "@headlessui/react"
 import { CheckCircleSolid } from "@medusajs/icons"
-import { Button, Heading, Text, clx } from "@medusajs/ui"
-
+import { Heading, Text, clx } from "@medusajs/ui"
+import Button from "@modules/common/components/custom-button"
 import Divider from "@modules/common/components/divider"
 import Radio from "@modules/common/components/radio"
 import ErrorMessage from "@modules/checkout/components/error-message"
@@ -72,7 +72,7 @@ const Shipping: React.FC<ShippingProps> = ({
             }
           )}
         >
-          Delivery
+          Select Appointment Slot
           {!isOpen && (cart.shipping_methods?.length ?? 0) > 0 && (
             <CheckCircleSolid />
           )}

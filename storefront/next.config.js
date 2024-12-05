@@ -7,6 +7,9 @@ checkEnvVariables()
  */
 const nextConfig = {
   reactStrictMode: true,
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   images: {
     remotePatterns: [
       {
@@ -24,6 +27,10 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "medusa-server-testing.s3.amazonaws.com",
+      },
+      {
+        protocol: "https",
+        hostname: "i.imghippo.com",
       },
       {
         protocol: "https",

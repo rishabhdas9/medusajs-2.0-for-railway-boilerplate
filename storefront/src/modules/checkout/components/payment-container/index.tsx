@@ -1,6 +1,6 @@
 import { RadioGroup } from "@headlessui/react"
 import { InformationCircleSolid } from "@medusajs/icons"
-import { Text, Tooltip, clx } from "@medusajs/ui"
+import { Text, Tooltip, clx, Badge } from "@medusajs/ui"
 import React from "react"
 
 import Radio from "@modules/common/components/radio"
@@ -43,17 +43,16 @@ const PaymentContainer: React.FC<PaymentContainerProps> = ({
             <Text className="text-base-regular">
               {paymentInfoMap[paymentProviderId]?.title || paymentProviderId}
             </Text>
-            {isManual(paymentProviderId) && isDevelopment && (
-              <PaymentTest className="hidden small:block" />
+            {isManual(paymentProviderId) && (
+              <Badge color="orange" className="text-xs">
+                Cash on Delivery
+              </Badge>
             )}
           </div>
           <span className="justify-self-end text-ui-fg-base">
             {paymentInfoMap[paymentProviderId]?.icon}
           </span>
         </div>
-        {isManual(paymentProviderId) && isDevelopment && (
-          <PaymentTest className="small:hidden text-[10px]" />
-        )}
       </RadioGroup.Option>
     </>
   )

@@ -1,10 +1,12 @@
 import { Suspense } from "react"
-
+import NavbarSearch from "@modules/layout/components/navbar-search"
 import { listRegions } from "@lib/data/regions"
 import { StoreRegion } from "@medusajs/types"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import CartButton from "@modules/layout/components/cart-button"
 import SideMenu from "@modules/layout/components/side-menu"
+import Image from "next/image"
+
 
 export default async function Nav() {
   const regions = await listRegions().then((regions: StoreRegion[]) => regions)
@@ -25,24 +27,42 @@ export default async function Nav() {
               className="txt-compact-xlarge-plus hover:text-ui-fg-base uppercase"
               data-testid="nav-store-link"
             >
-              Medusa Store
+              <Image
+                src="https://i.imghippo.com/files/Nw3760QFI.png"
+                alt="Fifth Vital"
+                width={120}  // Adjust these values based on your needs
+                height={40}  // Adjust these values based on your needs
+                className="object-contain"
+                priority
+              />
             </LocalizedClientLink>
           </div>
 
+    
+
           <div className="flex items-center gap-x-6 h-full flex-1 basis-0 justify-end">
-            <div className="hidden small:flex items-center gap-x-6 h-full">
-              {process.env.NEXT_PUBLIC_FEATURE_SEARCH_ENABLED && (
-                <LocalizedClientLink
-                  className="hover:text-ui-fg-base"
-                  href="/search"
-                  scroll={false}
-                  data-testid="nav-search-link"
-                >
-                  Search
-                </LocalizedClientLink>
-              )}
+            <div className="hidden small:flex items-center gap-x-5 h-full">
+            <NavbarSearch />
               <LocalizedClientLink
-                className="hover:text-ui-fg-base"
+                className="font-bold text-indigo-500 hover:text-white px-2 py-2 rounded-md 
+                          transition-all duration-200 ease-in-out
+                          hover:bg-indigo-500"
+                href="/categories/tests"
+                data-testid="nav-tests-link"
+              >
+                Tests
+              </LocalizedClientLink>
+              <LocalizedClientLink
+                className="font-bold text-orange-500 hover:text-white px-1 py-2 rounded-md 
+                          transition-all duration-200 ease-in-out
+                          hover:bg-orange-500"
+                href="/categories/complete-health-checkups"
+                data-testid="nav-checkups-link"
+              >
+                Checkups
+              </LocalizedClientLink>
+              <LocalizedClientLink
+                className="hover:text-ui-fg-base px-2"
                 href="/account"
                 data-testid="nav-account-link"
               >

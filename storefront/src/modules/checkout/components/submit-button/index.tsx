@@ -1,6 +1,6 @@
 "use client"
 
-import { Button } from "@medusajs/ui"
+import Button from "@modules/common/components/custom-button"
 import React from "react"
 import { useFormStatus } from "react-dom"
 
@@ -23,7 +23,7 @@ export function SubmitButton({
       className={className}
       type="submit"
       isLoading={pending}
-      variant={variant || "primary"}
+      variant={"primary"}
       data-testid={dataTestId}
     >
       {children}

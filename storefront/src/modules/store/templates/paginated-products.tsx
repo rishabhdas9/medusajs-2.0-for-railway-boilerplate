@@ -3,6 +3,8 @@ import { getRegion } from "@lib/data/regions"
 import ProductPreview from "@modules/products/components/product-preview"
 import { Pagination } from "@modules/store/components/pagination"
 import { SortOptions } from "@modules/store/components/refinement-list/sort-products"
+import ProductTile from "@modules/products/components/product-tile"
+
 
 const PRODUCT_LIMIT = 12
 
@@ -21,6 +23,7 @@ export default async function PaginatedProducts({
   categoryId,
   productsIds,
   countryCode,
+  searchQuery,
 }: {
   sortBy?: SortOptions
   page: number
@@ -28,7 +31,16 @@ export default async function PaginatedProducts({
   categoryId?: string
   productsIds?: string[]
   countryCode: string
+  searchQuery?: string
 }) {
+  // const { response, nextPage } = await getProductsListWithSort({
+  //   page,
+  //   sortBy,
+  //   searchQuery,
+  //   countryCode,
+  // })
+
+
   const queryParams: PaginatedProductsParams = {
     limit: 12,
   }
@@ -62,6 +74,7 @@ export default async function PaginatedProducts({
     queryParams,
     sortBy,
     countryCode,
+    searchQuery
   })
 
   const totalPages = Math.ceil(count / PRODUCT_LIMIT)

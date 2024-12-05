@@ -29,6 +29,7 @@ const PaymentDetails = ({ order }: PaymentDetailsProps) => {
                 data-testid="payment-method"
               >
                 {paymentInfoMap[payment.provider_id].title}
+                <span> - Cash On Delivery</span>
               </Text>
             </div>
             <div className="flex flex-col w-2/3">
@@ -45,9 +46,12 @@ const PaymentDetails = ({ order }: PaymentDetailsProps) => {
                     : `${convertToLocale({
                         amount: payment.amount,
                         currency_code: order.currency_code,
-                      })} paid at ${new Date(
+                      })} recorded. Order created at - 
+                      ${
+                        new Date(
                         payment.created_at ?? ""
-                      ).toLocaleString()}`}
+                      ).toLocaleString()
+                      }`}
                 </Text>
               </div>
             </div>
@@ -55,7 +59,7 @@ const PaymentDetails = ({ order }: PaymentDetailsProps) => {
         )}
       </div>
 
-      <Divider className="mt-8" />
+      
     </div>
   )
 }

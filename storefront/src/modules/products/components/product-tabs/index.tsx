@@ -1,11 +1,8 @@
 "use client"
 
-import Back from "@modules/common/icons/back"
-import FastDelivery from "@modules/common/icons/fast-delivery"
-import Refresh from "@modules/common/icons/refresh"
-
-import Accordion from "./accordion"
 import { HttpTypes } from "@medusajs/types"
+import { Tab } from "@headlessui/react"
+import { clsx } from "clsx"
 
 type ProductTabsProps = {
   product: HttpTypes.StoreProduct
@@ -13,108 +10,56 @@ type ProductTabsProps = {
 
 const ProductTabs = ({ product }: ProductTabsProps) => {
   const tabs = [
+    // {
+    //   // label: "Test Information",
+    //   // content: product.material,
+    // },
     {
-      label: "Product Information",
-      component: <ProductInfoTab product={product} />,
+      label: "Reliability",
+      content: "Fifth Vital is a NABL accredited lab and our tests are conducted by experienced professionals to ensure accuracy and reliability.",
     },
     {
-      label: "Shipping & Returns",
-      component: <ShippingInfoTab />,
+      label: "Sample Collection",
+      content: "Our trained phlebotomist will collect the sample from your home at your preferred time slot. Alternatively, you can visit us at your convenience.",
+    },
+    {
+      label: "Report Delivery",
+      content: "Reports will be delivered to your Whatsapp number or your email within 24 hours.",
     },
   ]
 
   return (
-    <div className="w-full">
-      <Accordion type="multiple">
+    <Tab.Group>
+      <Tab.List className="border-b border-gray-200">
+        <div className="flex gap-4">
+          {tabs.map((tab, i) => (
+            <Tab
+              key={i}
+              className={({ selected }) =>
+                clsx(
+                  "py-2 px-4 text-left focus:outline-none transition-all duration-200",
+                  selected
+                    ? "text-indigo-600 border-b-2 border-indigo-600"
+                    : "text-gray-500 hover:text-gray-700"
+                )
+              }
+            >
+              {tab.label}
+            </Tab>
+          ))}
+        </div>
+      </Tab.List>
+      <Tab.Panels className="pt-4">
         {tabs.map((tab, i) => (
-          <Accordion.Item
+          <Tab.Panel
             key={i}
-            title={tab.label}
-            headingSize="medium"
-            value={tab.label}
+            className="text-gray-600 leading-relaxed space-y-4"
           >
-            {tab.component}
-          </Accordion.Item>
+            {tab.content}
+          </Tab.Panel>
         ))}
-      </Accordion>
-    </div>
-  )
-}
-
-const ProductInfoTab = ({ product }: ProductTabsProps) => {
-  return (
-    <div className="text-small-regular py-8">
-      <div className="grid grid-cols-2 gap-x-8">
-        <div className="flex flex-col gap-y-4">
-          <div>
-            <span className="font-semibold">Material</span>
-            <p>{product.material ? product.material : "-"}</p>
-          </div>
-          <div>
-            <span className="font-semibold">Country of origin</span>
-            <p>{product.origin_country ? product.origin_country : "-"}</p>
-          </div>
-          <div>
-            <span className="font-semibold">Type</span>
-            <p>{product.type ? product.type.value : "-"}</p>
-          </div>
-        </div>
-        <div className="flex flex-col gap-y-4">
-          <div>
-            <span className="font-semibold">Weight</span>
-            <p>{product.weight ? `${product.weight} g` : "-"}</p>
-          </div>
-          <div>
-            <span className="font-semibold">Dimensions</span>
-            <p>
-              {product.length && product.width && product.height
-                ? `${product.length}L x ${product.width}W x ${product.height}H`
-                : "-"}
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  )
-}
-
-const ShippingInfoTab = () => {
-  return (
-    <div className="text-small-regular py-8">
-      <div className="grid grid-cols-1 gap-y-8">
-        <div className="flex items-start gap-x-2">
-          <FastDelivery />
-          <div>
-            <span className="font-semibold">Fast delivery</span>
-            <p className="max-w-sm">
-              Your package will arrive in 3-5 business days at your pick up
-              location or in the comfort of your home.
-            </p>
-          </div>
-        </div>
-        <div className="flex items-start gap-x-2">
-          <Refresh />
-          <div>
-            <span className="font-semibold">Simple exchanges</span>
-            <p className="max-w-sm">
-              Is the fit not quite right? No worries - we&apos;ll exchange your
-              product for a new one.
-            </p>
-          </div>
-        </div>
-        <div className="flex items-start gap-x-2">
-          <Back />
-          <div>
-            <span className="font-semibold">Easy returns</span>
-            <p className="max-w-sm">
-              Just return your product and we&apos;ll refund your money. No
-              questions asked – we&apos;ll do our best to make sure your return
-              is hassle-free.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
+      </Tab.Panels>
+    </Tab.Group>
   )
 }
 

@@ -13,9 +13,23 @@ interface MinPricedProduct extends HttpTypes.StoreProduct {
  */
 export function sortProducts(
   products: HttpTypes.StoreProduct[],
-  sortBy: SortOptions
+  sortBy: SortOptions,
+  searchQuery?: string
 ): HttpTypes.StoreProduct[] {
   let sortedProducts = products as MinPricedProduct[]
+
+  
+  // First filter by search if query exists
+  if (searchQuery) {
+    const query = searchQuery.toLowerCase()
+    sortedProducts = sortedProducts.filter((product) => 
+      product.title?.toLowerCase().includes(query) ||
+      product.description?.toLowerCase().includes(query)
+    )
+  }
+
+
+
 
   if (["price_asc", "price_desc"].includes(sortBy)) {
     // Precompute the minimum price for each product
