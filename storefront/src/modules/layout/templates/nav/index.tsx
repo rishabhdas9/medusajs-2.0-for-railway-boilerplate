@@ -6,7 +6,7 @@ import LocalizedClientLink from "@modules/common/components/localized-client-lin
 import CartButton from "@modules/layout/components/cart-button"
 import SideMenu from "@modules/layout/components/side-menu"
 import Image from "next/image"
-import { useCapacitorSafeArea } from "@/hooks/useCapacitorSafeArea"
+import { useCapacitorSafeArea } from "@hooks/useCapacitorSafeArea"
 
 
 export default async function Nav() {
