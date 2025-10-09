@@ -41,7 +41,7 @@ Combine Medusa's modules for your commerce backend with the newest Next.js 14 fe
 </p>
 
 ## About this boilerplate
-This boilerplate is a monorepo consisting of the officially released MedusaJS 2.0 backend and storefront application. It is a pre-configured, ready-to-deploy solution, modified for seamless deployment on [railway.app](https://railway.app?referralCode=-Yg50p).
+Check out 5thvital.com
 
 Updated: to `version 2.0.4` 🥳
 
@@ -88,9 +88,6 @@ Rename `.env.local.template` ->  `.env.local`
 `cd storefront/`
 `npm run dev` will run the storefront on uncompiled code, with hot-reloading as files are saved with changes.
 
-## Useful resources
-- How to setup credit card payment with Stripe payment module: https://youtu.be/dcSOpIzc1Og
-- https://funkyton.com/medusajs-2-0-is-finally-here/#succuessfully-deployed-whats-next
   
 <p align="center">
   <a href="https://funkyton.com/">
