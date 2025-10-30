@@ -36,7 +36,7 @@ Combine Medusa's modules for your commerce backend with the newest Next.js 14 fe
   </a>
 </p>
 
-## About this boilerplate
+## 5th Vital Website Information
 Check out 5thvital.com
 
 Updated: to `version 2.0.4` 🥳
